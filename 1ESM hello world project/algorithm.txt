@@ -1,0 +1,15 @@
+Start by connecting the LCD: Since we’re using an I²C LCD, only 4 wires are needed – VCC, GND, SDA, and SCL. 
+
+Load the LCD library: The Arduino can’t talk to the LCD on its own, so we use the LiquidCrystal_I2C library. This handles the I²C communication.
+
+Initialize the LCD: In the setup(), we tell the LCD to wake up, turn on its backlight, and get ready to display text.
+
+Print a greeting first: We put "Hello World" on the first line (row 0, col 0). This stays there for the whole program.
+
+Think about the timer: The Arduino has a built-in clock function millis(), which gives time in milliseconds since the board started running. We use this instead of delay() so the program doesn’t freeze.
+
+Count seconds: Every 1000 milliseconds, we increase a counter called seconds. This is basically our stopwatch.
+
+Update the LCD: On the second line, we print "Time: X sec", where X is our counter. Every second, the number updates. We also add a couple of extra spaces after printing so old numbers don’t stick.
+
+Repeat forever: The loop() keeps running, so the counter keeps climbing, and the LCD always shows the updated time.
