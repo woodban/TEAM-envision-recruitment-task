@@ -1,0 +1,23 @@
+Start with the components: We need an Arduino UNO, a potentiometer, one LED, and a resistor (220Ω for the LED).
+
+Do the wiring:
+
+Potentiometer has 3 pins → connect left pin to 5V, right pin to GND, and the middle pin (wiper) to A0 on Arduino.
+
+LED → longer leg (anode) to pin 9 through a 220Ω resistor, shorter leg (cathode) to GND.
+
+Think about how it works: The potentiometer acts like a variable resistor, giving an analog voltage between 0V and 5V depending on how much you rotate it. Arduino reads this as a number between 0 and 1023.
+
+Problem: The LED brightness function (analogWrite) only accepts values from 0 to 255. So, we need to shrink (map) the potentiometer’s 0–1023 range down to 0–255.
+
+Plan the program:
+
+Read potentiometer value using analogRead(A0).
+
+Convert that value to LED brightness using map().
+
+Send the brightness to pin 9 using analogWrite().
+
+Run the loop: As you keep rotating the knob, the program keeps reading new values and instantly adjusts the LED brightness. Turn it one way → LED gets dimmer, the other way → LED gets brighter.
+
+Final result: The LED brightness smoothly follows the potentiometer’s position, like a dimmer switch.

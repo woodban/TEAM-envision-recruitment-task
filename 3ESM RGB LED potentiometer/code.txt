@@ -1,0 +1,32 @@
+const int potRed = A0;
+const int potGreen = A1;
+const int potBlue = A2;
+
+
+const int redPin = 9;
+const int greenPin = 10;
+const int bluePin = 11;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void loop() {
+ 
+  int redValue = analogRead(potRed);
+  int greenValue = analogRead(potGreen);
+  int blueValue = analogRead(potBlue);
+
+ 
+  redValue = map(redValue, 0, 1023, 0, 255);
+  greenValue = map(greenValue, 0, 1023, 0, 255);
+  blueValue = map(blueValue, 0, 1023, 0, 255);
+ 
+  analogWrite(redPin, redValue);
+  analogWrite(greenPin, greenValue);
+  analogWrite(bluePin, blueValue);
+
+  delay(10); 
+}

@@ -1,0 +1,28 @@
+Algorithm: Controlling RGB LED with Potentiometers
+
+Start by setting up the hardware.
+Place the RGB LED on the breadboard and connect its common cathode leg to GND. Connect the red, green, and blue legs each through a 220Ω resistor to Arduino pins 9, 10, and 11 (all PWM pins).
+
+Add three potentiometers.
+Wire each potentiometer so that one side goes to 5V, the other side goes to GND, and the middle wiper pin goes to Arduino analog inputs A0, A1, and A2. These will be used to control red, green, and blue brightness separately.
+
+Write the program setup.
+
+Define the three potentiometer pins as inputs (A0, A1, A2).
+
+Define the three LED pins (9, 10, 11) as outputs.
+
+Read the potentiometer values.
+Use analogRead() on each pot. This gives a value between 0 and 1023 depending on how much the knob is turned.
+
+Scale the values for PWM.
+Since LED brightness is controlled by PWM (0–255), map each potentiometer reading (0–1023) down to the range 0–255 using map().
+
+Write the brightness to each LED pin.
+Use analogWrite() with the mapped values to set the intensity of red, green, and blue.
+
+Mix the colors.
+By turning the three potentiometers in different combinations, the LED will blend the three channels and produce different colors.
+
+Repeat continuously.
+Keep looping through the steps: read potentiometers → map values → update LED. This way, any movement of the knobs instantly changes the LED color.Write your note here.
